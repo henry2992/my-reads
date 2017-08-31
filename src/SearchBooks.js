@@ -34,9 +34,6 @@ class SearchBooks extends Component {
   }
 
 
-
-
-
   onShelfChange = (book, shelf) => {
     BooksAPI.update(book, shelf).then(books => {
       book.shelf = shelf
@@ -49,7 +46,6 @@ class SearchBooks extends Component {
   render() {
     const books = this.state.books
     let content = ''
-    console.log(this.props)
 
     if (books.length > 0 && !(books === null )) {
       content = <Books 
