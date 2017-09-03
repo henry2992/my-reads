@@ -33,16 +33,6 @@ class SearchBooks extends Component {
     }
   }
 
-
-  onShelfChange = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(books => {
-      book.shelf = shelf
-      this.setState({ 
-        books: this.state.books.filter(b => b.id !== book.id) 
-      })
-    })
-  }
-
   render() {
     const books = this.state.books
     let content = ''
@@ -50,7 +40,7 @@ class SearchBooks extends Component {
     if (books.length > 0 && !(books === null )) {
       content = <Books 
         books={books}
-        onShelfChange={this.onShelfChange}
+        onShelfChange={this.props.onShelfChange}
       />
     } else {
       content = <p>No books found</p>
